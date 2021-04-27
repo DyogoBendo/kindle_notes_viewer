@@ -15,8 +15,8 @@ def handle_txt_file(f):
             is_nota = linhas[2].find("nota") > -1
             is_destaque = linhas[2].find("destaque") > -1
 
-            if linhas[1].find('|'):
-                posicoes = linhas[1].split('|')[0].split(' ')[4]
+            if linhas[1].find('|') > 0:                
+                posicoes = linhas[1].split('|')[0].split(' ')[5]
                 if posicoes.find('-') > -1:
                     posicao_inicial, posicao_final = map(int, posicoes.split('-'))
                 else:
@@ -25,7 +25,7 @@ def handle_txt_file(f):
                 
                 date = ' '.join(linhas[1].split('|')[1].split(' ')[2:])            
             else:
-                posicoes = linhas[2].split('|')[0].split(' ')[4]
+                posicoes = linhas[2].split('|')[0].split(' ')[5]
                 if posicoes.find('-') > -1:
                     posicao_inicial, posicao_final = map(int, posicoes.split('-'))
                 else:
