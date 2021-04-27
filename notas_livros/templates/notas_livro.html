@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}    
+    <div class="row justify-content-center">
+        <div class="col align-self-center">
+            <h2>Total de notas: {{object_list.count}}</h2>
+        </div>
+    </div>    
+        {% for note in object_list %}                    
+                <div class="card">
+                    <div class="card-header">                        
+                        <p>{{note.data}} -  Posição: {{note.posicao_inicial}}</p>                                                
+                    </div>
+                    <div class="card-body">
+                        <h5>{{note.destaque}}</h5> 
+                        {% if note.nota not in 'Esse destaque não possui nota'%}
+                            <p>{{note.nota}}</p>
+                        {% endif %}
+                    </div>
+                </div>                            
+            <br>   
+        {% endfor %}    
+
+{% endblock content %}
